@@ -1,10 +1,10 @@
-# A-Library-Managment-System-using-C-
+# A-Library Managment System using C++
+
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Book
-{
+class Book {
 public:
     int id;
     string title;
@@ -20,16 +20,16 @@ void addBook() {
     cin >> books[totalBooks].id;
     cin.ignore();
 
-  cout << "Enter Book Title: ";
+    cout << "Enter Book Title: ";
     getline(cin, books[totalBooks].title);
 
-  cout << "Enter Author Name: ";
+    cout << "Enter Author Name: ";
     getline(cin, books[totalBooks].author);
 
-   books[totalBooks].issued = false;
+    books[totalBooks].issued = false;
     totalBooks++;
 
-   cout << "Book Added Successfully!\n";
+    cout << "Book Added Successfully!\n";
 }
 
 void viewBooks() {
@@ -38,9 +38,9 @@ void viewBooks() {
         return;
     }
 
-   cout << "\n===== Book List =====\n";
+    cout << "\n===== Book List =====\n";
 
-  for (int i = 0; i < totalBooks; i++) {
+    for (int i = 0; i < totalBooks; i++) {
         cout << "\nID: " << books[i].id;
         cout << "\nTitle: " << books[i].title;
         cout << "\nAuthor: " << books[i].author;
@@ -55,7 +55,7 @@ void searchBook() {
     cout << "\nEnter Book ID: ";
     cin >> id;
 
-   for (int i = 0; i < totalBooks; i++) {
+    for (int i = 0; i < totalBooks; i++) {
         if (books[i].id == id) {
             cout << "\nBook Found!\n";
             cout << "Title: " << books[i].title << endl;
@@ -64,7 +64,7 @@ void searchBook() {
         }
     }
 
-  cout << "Book Not Found!\n";
+    cout << "Book Not Found!\n";
 }
 
 void issueBook() {
@@ -72,16 +72,12 @@ void issueBook() {
     cout << "\nEnter Book ID: ";
     cin >> id;
 
-  for (int i = 0; i < totalBooks; i++) {
-        if (books[i].id == id) 
-        {
+    for (int i = 0; i < totalBooks; i++) {
+        if (books[i].id == id) {
 
-if (books[i].issued)
-{
+            if (books[i].issued) {
                 cout << "Book Already Issued!\n";
-            } 
-            else
-            {
+            } else {
                 books[i].issued = true;
                 cout << "Book Issued Successfully!\n";
             }
@@ -89,7 +85,7 @@ if (books[i].issued)
         }
     }
 
-  cout << "Book Not Found!\n";
+    cout << "Book Not Found!\n";
 }
 
 void returnBook() {
@@ -97,16 +93,12 @@ void returnBook() {
     cout << "\nEnter Book ID: ";
     cin >> id;
 
-   for (int i = 0; i < totalBooks; i++) {
-        if (books[i].id == id)
-        {
+    for (int i = 0; i < totalBooks; i++) {
+        if (books[i].id == id) {
 
-   if (!books[i].issued) 
-   {
+            if (!books[i].issued) {
                 cout << "Book Was Not Issued!\n";
-            } 
-            else 
-            {
+            } else {
                 books[i].issued = false;
                 cout << "Book Returned Successfully!\n";
             }
@@ -114,13 +106,13 @@ void returnBook() {
         }
     }
 
-   cout << "Book Not Found!\n";
+    cout << "Book Not Found!\n";
 }
 
 int main() {
     int choice;
 
-   do {
+    do {
         cout << "\n===== Library Management System =====";
         cout << "\n1. Add Book";
         cout << "\n2. View Books";
@@ -131,37 +123,36 @@ int main() {
         cout << "\nEnter Choice: ";
         cin >> choice;
 
-  switch (choice) {
+        switch (choice) {
             case 1:
                 addBook();
                 break;
 
-   case 2:
+            case 2:
                 viewBooks();
                 break;
 
-  case 3:
+            case 3:
                 searchBook();
                 break;
 
-   case 4:
+            case 4:
                 issueBook();
                 break;
 
-   case 5:
+            case 5:
                 returnBook();
                 break;
 
-  case 6:
+            case 6:
                 cout << "Goodbye!\n";
                 break;
 
-   default:
+            default:
                 cout << "Invalid Choice!\n";
         }
 
-  }
-  while (choice != 6);
+    } while (choice != 6);
 
-   return 0;
+    return 0;
 }
