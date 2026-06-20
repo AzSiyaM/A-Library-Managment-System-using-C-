@@ -1,9 +1,8 @@
-# A-Library Managment System using C++
+#A-Library Managment System using C++
 
 #include <iostream>
 #include <string>
 using namespace std;
-
 class Book {
 public:
     int id;
